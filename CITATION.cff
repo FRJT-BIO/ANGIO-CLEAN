@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use Angio-CLEAN, please cite the article describing it (listed under 'preferred-citation')."
+title: "Angio-CLEAN: an ImageJ/Fiji plug-in for halo-artifact removal in angiogenesis images"
+abstract: >-
+  Angio-CLEAN is a free, open-source ImageJ/Fiji plug-in that removes the halo
+  artifact from in vitro angiogenesis assay images by subtracting an estimated
+  background, flattening illumination and enhancing vascular structures for more
+  accurate automated quantification.
+type: software
+version: "3.0.0"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/FRJT-BIO/ANGIO-CLEAN"
+url: "https://github.com/FRJT-BIO/ANGIO-CLEAN"
+keywords:
+  - ImageJ
+  - Fiji
+  - angiogenesis
+  - tube-formation assay
+  - background subtraction
+  - halo artifact
+  - image processing
+authors:
+  - family-names: "Jimenez-Trinidad"
+    given-names: "Francisco Rafael"
+preferred-citation:
+  type: article
+  title: "Angio-CLEAN: a user-friendly ImageJ plug-in for halo-artifact removal that improves automated angiogenesis quantification"
+  authors:
+    - family-names: "Jimenez-Trinidad"
+      given-names: "Francisco Rafael"
+    - family-names: "Sardine"
+      given-names: "Anna"
+    - family-names: "Severino"
+      given-names: "Anna"
+    - family-names: "Barbera"
+      given-names: "Joan Albert"
+    - family-names: "Dantas"
+      given-names: "Ana Paula"
+    - family-names: "Liuzzo"
+      given-names: "Giovanna"
+  # --- Fill these in when the article is published (preprint or journal): ---
+  # year: 2026
+  # journal: "Journal name"
+  # doi: "INSERT article DOI here when published"

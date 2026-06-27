@@ -1,0 +1,19 @@
+# Build outputs
+/target/
+/.build/
+/.test/
+/build/
+*.class
+ij.jar
+
+# Keep the distributable jar tracked under download_plugin/ for releases,
+# but ignore stray jars elsewhere:
+/*.jar
+!download_plugin/*.jar
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
