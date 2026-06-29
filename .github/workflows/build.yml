@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,11 +26,13 @@ jobs:
           ./build.sh
 
       - name: Compile and run tests (headless, under xvfb)
+        timeout-minutes: 5
         run: |
           sudo apt-get update && sudo apt-get install -y xvfb
           mkdir -p .test
           javac -cp ij.jar:Angio-CLEAN_.jar -d .test src/test/java/TestAngioV3.java
-          xvfb-run -a java -cp ij.jar:Angio-CLEAN_.jar:.test TestAngioV3
+          xvfb-run -a timeout 120 java -Djava.awt.headless=true -cp ij.jar:Angio-CLEAN_.jar:.test TestAngioV3
+          echo "Tests finished; forcing clean exit."
 
       - name: Upload built jar
         uses: actions/upload-artifact@v4
