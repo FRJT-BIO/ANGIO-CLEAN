@@ -31,8 +31,12 @@ jobs:
           sudo apt-get update && sudo apt-get install -y xvfb
           mkdir -p .test
           javac -cp ij.jar:Angio-CLEAN_.jar -d .test src/test/java/TestAngioV3.java
-          xvfb-run -a timeout 120 java -Djava.awt.headless=true -cp ij.jar:Angio-CLEAN_.jar:.test TestAngioV3
-          echo "Tests finished; forcing clean exit."
+          set -o pipefail
+          xvfb-run -a timeout --signal=KILL 120 \
+            java -Djava.awt.headless=true -cp ij.jar:Angio-CLEAN_.jar:.test TestAngioV3 \
+            | tee test_output.log || true
+          echo "----"
+          grep -q "ALL V3 TESTS PASSED" test_output.log && echo "Tests OK" || (echo "Tests FAILED" && exit 1)
 
       - name: Upload built jar
         uses: actions/upload-artifact@v4
